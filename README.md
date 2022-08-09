@@ -6,7 +6,7 @@
 
 The King Of Thieves Dungeon Dessigner, King of Thieves DD, or Kot DD is a Java made application that allows the user to create any type of dungeon, with any number of traps and other stuff. The main use for this app is, in the case that someone asks you what layout for a certain dungeon its the best, you open Kot DD and you create the best layout you think there is. 
 
-For example, nowadays for the current version of tge program, an empty layout for the ``base 108`` would look like this:<br>
+For example, for the current version of the program, an empty layout for the ``base 108`` would look like this:<br>
 
 ![imagen](https://user-images.githubusercontent.com/91225771/183775956-f9fc2375-aee2-4387-897b-735d021cad88.png)
 
