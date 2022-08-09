@@ -21,7 +21,7 @@ import javax.swing.border.EmptyBorder;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
 	
-	JTree tree = new JTree();
+	//JTree tree = new JTree();
 	JPanel contentPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
 	
@@ -37,13 +37,14 @@ public class MainFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setLocationRelativeTo(null);
+		setTitle("King of Thieves Dungeon Dessigner");
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		
 		/* Create a menu bar for the main application */
 		JMenu index1 = new JMenu(); index1.setText("New Dungeon");
 		JMenu index2 = new JMenu(); index2.setText("Dungeon Default Stuff");
 		JMenu index3 = new JMenu(); index3.setText("Traps");
-		
+				
 		menu.add(index1);
 		menu.add(index2);
 		menu.add(index3);
