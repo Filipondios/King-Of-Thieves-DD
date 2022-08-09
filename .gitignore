@@ -23,5 +23,5 @@
 hs_err_pid*
 
 # Eclipse workspace settings
-.classpath
-.project
+*.classpath
+*.project
