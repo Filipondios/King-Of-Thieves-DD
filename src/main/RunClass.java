@@ -1,15 +1,10 @@
 package main;
 
-import javax.swing.UIManager;
-import frames.TreeFrame;
+import frames.InitFrame;
 
 public class RunClass {
 	public static void main(String[] args) {
-		try {
-		   UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-		} catch (Exception e) { }
-		
 		@SuppressWarnings("unused")
-		TreeFrame tf = new TreeFrame();
+		InitFrame inf = new InitFrame();
 	}
 }
