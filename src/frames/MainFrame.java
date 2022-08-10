@@ -10,7 +10,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-import javax.swing.JTree;
 import javax.swing.border.EmptyBorder;
 
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
@@ -52,7 +51,6 @@ public class MainFrame extends JFrame{
 		
 		/* Create a content pane, where is going to be placed the editing space
 		 * for the images manipulation / dungeon dessingn */
-		
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
