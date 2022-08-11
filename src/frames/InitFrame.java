@@ -1,5 +1,6 @@
 package frames;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
+import com.formdev.flatlaf.FlatDarkLaf;
 /**Class that shows the first, with a image from {@link ImagePanel} and a progress bar.
  * Then it starts the second frame, {@link MainFrame} with the editor panel and workspace.
  * @author Filipondios
@@ -39,14 +41,9 @@ public class InitFrame extends javax.swing.JFrame {
 					dispose();
 					timer.stop();
 					
-					//Start the real program					
+					/* Try to set the frame Theme to FlatDarkLaf */
 	                try {
-	                	for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-	                        if ("Windows".equals(info.getName())) {
-	                            javax.swing.UIManager.setLookAndFeel(info.getClassName());
-	                            break;
-	                        }
-	                    }
+	                	javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
 					} catch (Exception ex) {
 						/*Could do a multi try-catch with ClassNotFoundException, InstantiationException,
 						 * IllegalAccessException, UnsupportedLookAndFeelException but its cleaner to
@@ -59,6 +56,8 @@ public class InitFrame extends javax.swing.JFrame {
 				}
 			}
 		};	
+		/* Changing the first value (x) of Timer(x,y) you set the duration
+		 * of the progress bar till is complete.*/
 		timer = new Timer(20, al);		
 		timer.start();
 	}
@@ -66,13 +65,17 @@ public class InitFrame extends javax.swing.JFrame {
 	/**Method that sets more basic configurations to the Frame and sets the values for the 
 	 * positions of the {@link JProgressBar} and the rest of the pane.**/
 	private void initComponents() {
+		/* Basic Frame config */
 		setUndecorated(true);
 		setVisible(true);
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		/* General for the bar */
 		jProgressBar1 = new javax.swing.JProgressBar();
-
+		jProgressBar1.setBackground(new Color(132, 132, 132));
+		jProgressBar1.setForeground(new Color(25, 25, 25));
+		
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
