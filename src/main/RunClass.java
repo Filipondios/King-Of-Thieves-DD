@@ -5,7 +5,7 @@ import frames.InitFrame;
  * @author Filipondios
  * @version 10.08.2022*/
 public class RunClass {
-	public static void main(String[] args) {		 
+	public static void main(String[] args) {			
 		@SuppressWarnings("unused")
 		InitFrame inf = new InitFrame();
 	}

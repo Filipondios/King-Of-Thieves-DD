@@ -55,12 +55,12 @@ public class MainFrame extends JFrame{
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 		
-		ImagePanel2 ip2 = new ImagePanel2();
-		add(ip2);
+		/*ImagePanel2 ip2 = new ImagePanel2();
+		add(ip2);*/
 	}
 }
 
-@SuppressWarnings("serial")
+/*@SuppressWarnings("serial")
 class ImagePanel2 extends JPanel{
 	
 	private Image image;
@@ -74,4 +74,4 @@ class ImagePanel2 extends JPanel{
 		setOpaque(false);
 		super.paint(g);
 	}
-}
+}*/

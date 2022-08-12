@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
+import javax.swing.border.EmptyBorder;
+
 import com.formdev.flatlaf.FlatDarkLaf;
 /**Class that shows the first, with a image from {@link ImagePanel} and a progress bar.
  * Then it starts the second frame, {@link MainFrame} with the editor panel and workspace.
@@ -42,8 +44,8 @@ public class InitFrame extends javax.swing.JFrame {
 					timer.stop();
 					
 					/* Try to set the frame Theme to FlatDarkLaf */
-	                try {
-	                	javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
+			        try {
+			        	javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
 					} catch (Exception ex) {
 						/*Could do a multi try-catch with ClassNotFoundException, InstantiationException,
 						 * IllegalAccessException, UnsupportedLookAndFeelException but its cleaner to
@@ -51,6 +53,7 @@ public class InitFrame extends javax.swing.JFrame {
 						 * we are specting is to get the Windows Theme. Otherwise, the theme will be the default (Metal).*/
 						ex.printStackTrace();
 					}
+			        
 					@SuppressWarnings("unused")
 					MainFrame tf = new MainFrame();
 				}
@@ -71,11 +74,12 @@ public class InitFrame extends javax.swing.JFrame {
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		/* General for the bar */
+		/* General settings for the bar */
 		jProgressBar1 = new javax.swing.JProgressBar();
 		jProgressBar1.setBackground(new Color(132, 132, 132));
 		jProgressBar1.setForeground(new Color(25, 25, 25));
-		
+		jProgressBar1.setBorder(new EmptyBorder(2,5,2,5));
+		    	
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
