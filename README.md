@@ -11,3 +11,13 @@ For example, for the current version of the program, an empty layout for the ``b
 ![imagen](https://user-images.githubusercontent.com/91225771/184241688-80af0189-ad2e-4321-b75a-df52f6c9b269.png)
 
 Note: All dungeons in the app follows the order made in the <a href="https://cdn.discordapp.com/attachments/857474425279741982/908792147568898048/bases.jpg"> Alucen´s scheme.</a>
+
+# How to run the program
+Dowload the ``.zip`` current version of the program with the necessary files <a href="https://raw.githubusercontent.com/Filipondios/King-Of-Thieves-DD/main/current-version/KOTDD.zip">in this link</a>.
+Then, you have two options:
+- Double click in the .jar file
+- Or in the command line, in the same folder that the .jar file is located, run the next command:
+```bash
+java -jar KOTDD.jar
+```
+<b> See that the easier option is the first, but if you are using a window manager in linux, maybe the faster one is the second. </b>
