@@ -13,11 +13,18 @@ For example, for the current version of the program, an empty layout for the ``b
 Note: All dungeons in the app follows the order made in the <a href="https://cdn.discordapp.com/attachments/857474425279741982/908792147568898048/bases.jpg"> Alucen´s scheme.</a>
 
 # How to run the program
+## Instalation via link
 Dowload the ``.zip`` current version of the program with the necessary files <a href="https://raw.githubusercontent.com/Filipondios/King-Of-Thieves-DD/main/current-version/KOTDD.zip">in this link</a>.
 Then, you have two options:
 - Double click in the .jar file
 - Or in the command line, in the same folder that the .jar file is located, run the next command:
 ```bash
 java -jar KOTDD.jar
+```
+## Installatiion via command line
+```bash
+git clone https://github.com/Filipondios/King-Of-Thieves-DD.git
+cd King-Of-Thieves-DD/current-version/
+unzip KOTDD.zip && java -jar KOTDD.jar
 ```
 <b> See that the easier option is the first, but if you are using a window manager in linux, maybe the faster one is the second. </b>
