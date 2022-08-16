@@ -55,8 +55,8 @@ public class InitFrame extends javax.swing.JFrame {
 					}
 			        
 					@SuppressWarnings("unused")
-					//MainFrame tf = new MainFrame();
-					DungeonFrame df = new DungeonFrame();
+					MainFrame tf = new MainFrame();
+					//DungeonFrame df = new DungeonFrame();
 				}
 			}
 		};	
