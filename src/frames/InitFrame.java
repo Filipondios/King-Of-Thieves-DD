@@ -55,13 +55,14 @@ public class InitFrame extends javax.swing.JFrame {
 					}
 			        
 					@SuppressWarnings("unused")
-					MainFrame tf = new MainFrame();
+					//MainFrame tf = new MainFrame();
+					DungeonFrame df = new DungeonFrame();
 				}
 			}
 		};	
 		/* Changing the first value (x) of Timer(x,y) you set the duration
 		 * of the progress bar till is complete.*/
-		timer = new Timer(20, al);		
+		timer = new Timer(1, al);		
 		timer.start();
 	}
 	
@@ -96,9 +97,9 @@ public class InitFrame extends javax.swing.JFrame {
 	}
 }
 
-/**A simple class that makes visible a image in a {@link JPanel}.
+/**A simple class that makes visible a custom image in a {@link JPanel}.
  * @author Filipondios
- * @version 11.08.2022*/
+ * @version 15.08.2022*/
 @SuppressWarnings("serial")
 class ImagePanel extends JPanel{
 	

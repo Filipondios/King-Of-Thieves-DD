@@ -2,8 +2,6 @@ package frames;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -20,7 +18,6 @@ import javax.swing.border.EmptyBorder;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
 	
-	//JTree tree = new JTree();
 	JPanel contentPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
 	
@@ -54,24 +51,5 @@ public class MainFrame extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
-		
-		/*ImagePanel2 ip2 = new ImagePanel2();
-		add(ip2);*/
 	}
 }
-
-/*@SuppressWarnings("serial")
-class ImagePanel2 extends JPanel{
-	
-	private Image image;
-	
-	public void paint(Graphics g) {
-		super.paintComponent(g);
-		
-		image = new ImageIcon("resources/images/base108.png").getImage();
-		
-		g.drawImage(image,0,0,getWidth(),getHeight(),null);
-		setOpaque(false);
-		super.paint(g);
-	}
-}*/
