@@ -3,10 +3,14 @@ package frames;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -20,6 +24,7 @@ public class MainFrame extends JFrame{
 	
 	JPanel contentPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
+	DungeonFrame dungeonFrame = new DungeonFrame();
 	
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
@@ -37,10 +42,20 @@ public class MainFrame extends JFrame{
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		
 		/* Create a menu bar for the main application */
-		JMenu index1 = new JMenu(); index1.setText("New Dungeon");
+		JMenu index1 = new JMenu(); index1.setText("Dungeon");		
 		JMenu index2 = new JMenu(); index2.setText("Dungeon Default Stuff");
 		JMenu index3 = new JMenu(); index3.setText("Traps");
-				
+		
+		JMenuItem item = new JMenuItem("Create/Open new Dungeon");
+		index1.add(item);
+		
+		item.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dungeonFrame.setVisible(true);
+			}
+		});
+		
 		menu.add(index1);
 		menu.add(index2);
 		menu.add(index3);
@@ -51,5 +66,19 @@ public class MainFrame extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
+	}
+	
+	private class openFrame<E extends JFrame> implements ActionListener{
+		
+		private E frameToLauch;
+		
+		public openFrame(E Frame) {
+			frameToLauch = Frame;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+		}
 	}
 }
