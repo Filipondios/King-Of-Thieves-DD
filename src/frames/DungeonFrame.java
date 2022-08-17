@@ -23,17 +23,16 @@ public class DungeonFrame extends JFrame{
 		Dimension screen  = tk.getScreenSize(); 
 		setSize(screen.width/8,screen.height/8);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setLayout(new BorderLayout(20,20));
 		setTitle("Choose the dungeon");
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		
-		String listMembers[] = new String[125];
+		String listMembers[] = new String[122];//125-3 (Bases 1,2,3 no estan)
 		for (int i = 0; i < listMembers.length; i++)
-			listMembers[i] = "base"+i;
+			listMembers[i] = "Base ["+(i+4)+"]";
 		
 		checkBoxesJList = new JList<String>(listMembers);
 		checkBoxesJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
