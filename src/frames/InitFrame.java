@@ -11,12 +11,18 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
-
 import com.formdev.flatlaf.FlatDarkLaf;
-/**Class that shows the first, with a image from {@link ImagePanel} and a progress bar.
- * Then it starts the second frame, {@link MainFrame} with the editor panel and workspace.
- * @author Filipondios
- * @version 10.08.2022*/
+
+/**Class that shows the first and its called by {@link MainFrame}, with a image from {@link ImagePanel} and 
+ * a progress bar from {@link JProgressBar}. Then it starts the second frame, from the class {@link MainFrame}
+ * with the editor panel and workspace.
+ * <br><br>
+ * Note that the progressbar its only a decorative element for the frame at this version, and it will be like
+ * that till all the init processes have much more weight over the application (hevier processes = the aplication
+ * starts slower).
+ * @author Filipondios, Hagernaut
+ * @see MainFrame
+ * @version 19.08.2022*/
 @SuppressWarnings("serial")
 public class InitFrame extends javax.swing.JFrame {
 	

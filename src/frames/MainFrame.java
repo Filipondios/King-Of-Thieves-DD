@@ -16,9 +16,10 @@ import javax.swing.border.EmptyBorder;
 
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
- * the workspace created in this Frame.
- * @author Filipondios
- * @version 09.08.2022**/
+ * the workspace created in this Frame. This frame is also linked to other different frames, like
+ * {@link DungeonFrame}, in the case that the user selects any option of the menu bar. 
+ * @author Filipondios, Hagernaut 
+ * @version 19.08.2022**/
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
 	
@@ -66,19 +67,5 @@ public class MainFrame extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5,5,5,5));
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
-	}
-	
-	private class openFrame<E extends JFrame> implements ActionListener{
-		
-		private E frameToLauch;
-		
-		public openFrame(E Frame) {
-			frameToLauch = Frame;
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			
-		}
 	}
 }
