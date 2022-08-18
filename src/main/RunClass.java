@@ -8,7 +8,7 @@ import frames.InitFrame;
  * 
  * Note that the frame created by {@link InitFrame} is linked to the rest of frames that
  * are present in the entire program. 
- * @author Filipondios
+ * @author Filipondios, Hagernaut
  * @see InitFrame
  * @version 19.08.2022*/
 public class RunClass {
