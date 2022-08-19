@@ -2,6 +2,7 @@ package frames;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.ScrollPane;
 import java.awt.Toolkit;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
@@ -12,12 +13,19 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
 
+/**This frame is called {@link MainFrame} in the case that the user selected the menu-bar option
+ * to create a new dungeon. In this frame, with the help of a {@link ScrollPane} and a {@link JList}, 
+ * the program can representate easily a list with all the available dungeons in the game, so the user
+ * can choose between all of them. 
+ * @author Filipondios, Hagernaut
+ * @version 19.08.2022*/
 @SuppressWarnings("serial")
 public class DungeonFrame extends JFrame{
 	
 	private JPanel contentPane = new JPanel();
 	private JList<String> checkBoxesJList;
-			
+	
+	/**Method that starts all the configurations for the Frame. **/
 	public DungeonFrame() {
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension screen  = tk.getScreenSize(); 
