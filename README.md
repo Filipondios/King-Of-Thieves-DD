@@ -27,4 +27,4 @@ git clone https://github.com/Filipondios/King-Of-Thieves-DD.git
 cd King-Of-Thieves-DD/current-version/
 unzip KOTDD.zip && java -jar KOTDD.jar
 ```
-<b> See that the easier option is the first, but if you are using a window manager in linux, maybe the faster one is the second. </b>
+<b> The easier option is the first, but if you are using a window manager in linux, maybe the faster one is the second. </b>
