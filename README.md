@@ -14,7 +14,7 @@ Note: All dungeons in the app follows the order made in the <a href="https://cdn
 
 # How to run the program
 ## Instalation via link
-Dowload the ``.zip`` current version of the program with the necessary files <a href="https://raw.githubusercontent.com/Filipondios/King-Of-Thieves-DD/main/current-version/KOTDD.zip">in this link</a>.
+Dowload the ``.zip`` current version of the program with the necessary files <a href="https://raw.githubusercontent.com/Filipondios/King-Of-Thieves-DD/main/current-version/current-version.zip">in this link</a>.
 Then, you have two options:
 - Double click in the .jar file
 - Or in the command line, in the same folder that the .jar file is located, run the next command:
