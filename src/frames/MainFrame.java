@@ -50,10 +50,12 @@ public class MainFrame extends JFrame{
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		
 		/* Create a menu bar for the main application */
+		/* Add items to the menubar */
 		JMenu index1 = new JMenu(); index1.setText("Options");		
 		JMenu index2 = new JMenu(); index2.setText("Dungeon Default Stuff");
 		JMenu index3 = new JMenu(); index3.setText("Traps");
 		
+		/* Add sub-items to the first item of the menu-bar */
 		JMenuItem item1s1 = new JMenuItem("Create/Open new Dungeon");
 		JMenuItem item1s2 = new JMenuItem("Restart");
 		JMenuItem item1s3 = new JMenuItem("Exit");
@@ -61,6 +63,8 @@ public class MainFrame extends JFrame{
 		index1.add(item1s2);
 		index1.add(item1s3);
 		
+		/* Adds a listener to the first sub-item of the first item of the menu-bar
+		 * (Create/Open new Dungeon). It opens a new frame (DungeonFrame) when clicked. */
 		item1s1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -68,27 +72,43 @@ public class MainFrame extends JFrame{
 			}
 		});
 		
+		/* Adds a listener to the second sub-item of the first item of the menu-bar 
+		 * (Restart). It restarts the current program. To do so, we search the binary file
+		 * of Java. In Windows it should be like C:\Program Files\Java\jre1.8.0_161\bin\java,
+		 * and in Linux should be like /usr/bin/java. Then we see the current path of the running 
+		 * .jar file and then it runs this file and closes the app. */
 		item1s2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
 				File jarDir = null;
+				String jarFile = "";
 				
 				try {
 					jarDir = new File(ClassLoader.getSystemClassLoader().getResource(".").toURI());
-				} catch (URISyntaxException e2) {
-					e2.printStackTrace();
-				}
+				} catch (URISyntaxException e1) { e1.printStackTrace(); }
 				
-				String[] dir = jarDir.list();
-				String jarFile = "";
-				
-				for (String obj : dir) {
-					if (obj.contains(".jar")) {
-						jarFile = obj; break;
+				/* Sometimes, depending on the current jre version, doing the last instruction in the 
+				 * try-catch, the obtained File could be the container directory where the .jar file is,
+				 * or the .jar file */
+				if (jarDir.isFile()) {
+					jarFile = jarDir.toString();
+				}else {
+					//Lists the directory where the .jar file is.
+					String[] dir = jarDir.list();
+					
+					//Obtain the name of the file
+					for (String obj : dir) {
+						if (obj.contains(".jar")) {
+							jarFile = obj; break;
+						}
 					}
 				}
-						
+				
+				/* Runs the restart command: 
+				 * - Windows: C:\Program Files\Java\jre1.8.0_161\bin\java -jar C:\path\to\the\current\jar\file
+				 * - Linux: /usr/bin/java -jar /path/to/the/current/jar/file 
+				 * This can be also be solved as the command java -jar /path/to/the/current/jar/file */
 				final ArrayList<String> command = new ArrayList<String>();
 				command.add(javaBin);
 				command.add("-jar");
@@ -97,14 +117,13 @@ public class MainFrame extends JFrame{
 				final ProcessBuilder builder = new ProcessBuilder(command);
 				try {
 					builder.start();
-				} catch (IOException e1) {
-					System.out.println("Start failed");
-					e1.printStackTrace();
-				}
+				} catch (IOException e1) { e1.printStackTrace(); }
 				System.exit(0);	
 			}
 		});
 		
+		/* Adds a listener to the third sub-item of the first item of the menu-bar 
+		 * (Exit). It finishes the current program. */
 		item1s3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
