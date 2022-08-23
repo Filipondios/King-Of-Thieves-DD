@@ -22,6 +22,15 @@ This one includes the next files, in the next order:
 			--> door.png
 			--> gravity.png
 		--> traps
+			--> cannon.png
+			--> dragon.png
+			--> fly.png
+			--> rg.png
+			--> ricochet.png
+			--> roaster.png
+			--> saw.png
+			--> spinner.png
+			--> warder.png
 			
 The "resources" folder is COMPLETELY NECESSARY to run the program. If you delete or move this folder
 to other place, KotDD won't work or the application will work badly (bad graphics, etc).
