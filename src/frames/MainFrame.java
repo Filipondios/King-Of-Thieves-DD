@@ -1,37 +1,37 @@
 package frames;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream.GetField;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import main.RunClass;
-
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
  * the workspace created in this Frame. This frame is also linked to other different frames, like
  * {@link DungeonFrame}, in the case that the user selects any option of the menu bar. 
  * @author Filipondios, Hagernaut 
- * @version 19.08.2022**/
+ * @version 24.08.2022**/
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame{
 	
-	JPanel contentPane = new JPanel();
+	protected static JPanel contentPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
+	protected JLabel label = new JLabel();
 	DungeonFrame dungeonFrame = new DungeonFrame();
 	
 	/**Method that starts all the configurations for the Frame. **/
@@ -48,6 +48,12 @@ public class MainFrame extends JFrame{
 		setLocationRelativeTo(null);
 		setTitle("King of Thieves Dungeon Dessigner");
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
+		
+		/* Create a content pane, where is going to be placed the editing space
+		 * for the images manipulation / dungeon dessingn */
+		contentPane.setLayout(null);
+		contentPane.setBorder(new EmptyBorder(5,5,5,5));
+		setContentPane(contentPane);
 		
 		/* Create a menu bar for the main application */
 		/* Add items to the menubar */
@@ -136,10 +142,14 @@ public class MainFrame extends JFrame{
 		menu.add(index3);
 		setJMenuBar(menu);
 		
-		/* Create a content pane, where is going to be placed the editing space
-		 * for the images manipulation / dungeon dessingn */
-		contentPane.setBorder(new EmptyBorder(5,5,5,5));
-		contentPane.setLayout(new BorderLayout());
-		setContentPane(contentPane);
+		/**/
+		label.setBounds(new Rectangle(0, 0, getWidth(), getHeight()));
+		//ImageIcon icon = new ImageIcon(new ImageIcon("resources/images/bases/base04.gif").getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
+	    //label.setIcon(icon);
+	    //contentPane.add(label,null);
 	}
+	
+	public int getFrameWidth() { return this.getWidth(); }
+	public int getFrameHeight() { return this.getHeight(); }
+	
 }
