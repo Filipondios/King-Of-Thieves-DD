@@ -2,17 +2,22 @@ package frames;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.ScrollPane;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**This frame is called {@link MainFrame} in the case that the user selected the menu-bar option
  * to create a new dungeon. In this frame, with the help of a {@link ScrollPane} and a {@link JList}, 
@@ -24,6 +29,7 @@ import javax.swing.SwingConstants;
 public class DungeonFrame extends JFrame{
 	
 	private JPanel contentPane = new JPanel();
+	private JLabel label = new JLabel();
 	private JList<String> checkBoxesJList;
 	
 	/**Method that starts all the configurations for the Frame. **/
@@ -62,7 +68,20 @@ public class DungeonFrame extends JFrame{
 		checkBoxesJList.setFixedCellWidth(getWidth());
 		checkBoxesJList.setFixedCellHeight(20);
 		checkBoxesJList.setVisibleRowCount(10);
-		 		
+		 
+		checkBoxesJList.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				label.setBounds(new Rectangle(0, 0, MainFrame.contentPane.getWidth(),MainFrame.contentPane.getHeight()));
+				
+				ImageIcon icon = new ImageIcon(new ImageIcon("resources/images/bases/"+checkBoxesJList.getSelectedValue()+".gif")
+						.getImage().getScaledInstance(MainFrame.contentPane.getWidth(), MainFrame.contentPane.getHeight(), Image.SCALE_SMOOTH));
+			    
+				label.setIcon(icon);
+			    MainFrame.contentPane.add(label,null);
+			}
+		});
+		
 		DefaultListCellRenderer renderer = (DefaultListCellRenderer) checkBoxesJList.getCellRenderer();
 		renderer.setHorizontalAlignment(SwingConstants.CENTER);
 		
