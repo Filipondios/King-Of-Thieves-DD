@@ -13,7 +13,6 @@ import frames.InitFrame;
  * @version 19.08.2022*/
 public class RunClass {
 	public static void main(String[] args) {			
-		@SuppressWarnings("unused")
-		InitFrame inf = new InitFrame();
+		new InitFrame();
 	}
 }
