@@ -60,9 +60,7 @@ public class InitFrame extends javax.swing.JFrame {
 						ex.printStackTrace();
 					}
 			        
-					@SuppressWarnings("unused")
-					MainFrame tf = new MainFrame();
-					//DungeonFrame df = new DungeonFrame();
+					new MainFrame();
 				}
 			}
 		};	
