@@ -1,22 +1,15 @@
 package frames;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.*;
 
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
@@ -24,12 +17,13 @@ import javax.swing.border.EmptyBorder;
  * {@link DungeonFrame}, in the case that the user selects any option of the menu bar. 
  * @author Filipondios, Hagernaut 
  * @version 24.08.2022**/
-@SuppressWarnings("serial")
-public class MainFrame extends JFrame{
-	protected static JPanel contentPane = new JPanel();
+public class MainFrame extends JFrame implements KeyListener{
+
+	private JLayeredPane lpane = new JLayeredPane();
+	private int actualDungeon = 4;
+	protected static JPanel dungeonPane = new JPanel();
+	protected static JPanel gridPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
-	protected JLabel label = new JLabel();
-	DungeonFrame dungeonFrame = new DungeonFrame();
 
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
@@ -41,16 +35,30 @@ public class MainFrame extends JFrame{
 
 		/* Common Frame settings and other stuff */
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		setTitle("King of Thieves Dungeon Dessigner");
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
+		setVisible(true);
 
-		/* Create a content pane, where is going to be placed the editing space
-		 * for the images manipulation / dungeon dessingn */
-		contentPane.setLayout(null);
-		contentPane.setBorder(new EmptyBorder(5,5,5,5));
-		setContentPane(contentPane);
+		add(lpane, BorderLayout.CENTER);
+		lpane.setBounds(0, 0, getWidth(), getHeight());
+
+		dungeonPane.setBounds(0, 0, getWidth(), getHeight());
+		dungeonPane.setOpaque(true);
+
+		gridPane.setBounds(0, 0, getWidth(), getHeight());
+		gridPane.setOpaque(false);
+
+		ImageIcon grid = new ImageIcon(new ImageIcon("resources/images/bases/grid.gif").getImage().
+				getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
+		JLabel gridLabel = new JLabel(grid);
+		gridPane.add(gridLabel);
+		
+		setDungeon(4);
+
+		lpane.add(dungeonPane, 0, 0);
+		lpane.add(gridPane, 1, 0);
 
 		/* Create a menu bar for the main application */
 		/* Add items to the menubar */
@@ -59,28 +67,17 @@ public class MainFrame extends JFrame{
 		JMenu index3 = new JMenu(); index3.setText("Traps");
 
 		/* Add sub-items to the first item of the menu-bar */
-		JMenuItem item1s1 = new JMenuItem("Create/Open new Dungeon");
-		JMenuItem item1s2 = new JMenuItem("Restart");
-		JMenuItem item1s3 = new JMenuItem("Exit");
+		JMenuItem item1s1 = new JMenuItem("Restart Application");
+		JMenuItem item1s2 = new JMenuItem("Exit");
 		index1.add(item1s1);
 		index1.add(item1s2);
-		index1.add(item1s3);
-
-		/* Adds a listener to the first sub-item of the first item of the menu-bar
-		 * (Create/Open new Dungeon). It opens a new frame (DungeonFrame) when clicked. */
-		item1s1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				dungeonFrame.setVisible(true);
-			}
-		});
 
 		/* Adds a listener to the second sub-item of the first item of the menu-bar
 		 * (Restart). It restarts the current program. To do so, we search the binary file
 		 * of Java. In Windows it should be like C:\Program Files\Java\jre1.8.0_161\bin\java,
 		 * and in Linux should be like /usr/bin/java. Then we see the current path of the running
 		 * .jar file and then it runs this file and closes the app. */
-		item1s2.addActionListener(new ActionListener() {
+		item1s1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
@@ -127,7 +124,7 @@ public class MainFrame extends JFrame{
 
 		/* Adds a listener to the third sub-item of the first item of the menu-bar
 		 * (Exit). It finishes the current program. */
-		item1s3.addActionListener(new ActionListener() {
+		item1s2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -138,14 +135,57 @@ public class MainFrame extends JFrame{
 		menu.add(index2);
 		menu.add(index3);
 		setJMenuBar(menu);
-
-		/**/
-		label.setBounds(new Rectangle(0, 0, getWidth(), getHeight()));
-		//ImageIcon icon = new ImageIcon(new ImageIcon("resources/images/bases/base04.gif").getImage().getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
-		//label.setIcon(icon);
-		//contentPane.add(label,null);
+		
+		addKeyListener(this);
 	}
 
-	public int getFrameWidth() { return this.getWidth(); }
-	public int getFrameHeight() { return this.getHeight(); }
+	private void setDungeon(int dungeonNumber){		
+		ImageIcon dungeon2 = new ImageIcon(new ImageIcon("resources/images/bases/"+dungeonNumber+".gif").getImage().
+				getScaledInstance(dungeonPane.getWidth(), dungeonPane.getHeight(), Image.SCALE_SMOOTH));
+
+		if (dungeonPane.getComponents().length!=0)
+			dungeonPane.remove(0);
+
+		JLabel dungeonLabel2 = new JLabel(dungeon2);
+		dungeonPane.add(dungeonLabel2);
+	}
+	
+	private boolean isDungeon(int dungeonNumber) {
+		int[] notDungeons = {50,51,55,59,60,85,86};
+		for (int e : notDungeons)
+			if (dungeonNumber==e) { return false; }
+		return true;
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) { 
+		/* Pressing the Right Key, the dungeon changes to the next*/
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT && actualDungeon<125) {
+			if (isDungeon(actualDungeon+1)) {
+				actualDungeon++;
+			}else {
+				while (!isDungeon(actualDungeon+1)||!isDungeon(actualDungeon))
+					actualDungeon++;
+			}
+		}
+		
+		/* Pressing the Right Key, the dungeon changes to the next*/
+		if(e.getKeyCode() == KeyEvent.VK_LEFT && actualDungeon>4) {
+			if (isDungeon(actualDungeon-1)) {
+				actualDungeon--;
+			}else {
+				while (!isDungeon(actualDungeon-1)||!isDungeon(actualDungeon))
+					actualDungeon--;
+			}
+		}
+		
+		this.setTitle("King of Thieves Dungeon Dessigner (Base "+actualDungeon+")");
+		setDungeon(actualDungeon);
+	}
+	
+	@Override
+	public void keyTyped(KeyEvent e) { }
+
+	@Override
+	public void keyReleased(KeyEvent e) { }
 }
