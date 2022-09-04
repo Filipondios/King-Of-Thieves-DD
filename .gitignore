@@ -1,5 +1,3 @@
-/.settings/
-.classpath
-.project
-/bin/
-*.jar
+# IntelliJ settings
+/.idea/
+King-Of-Thieves-DD.iml
