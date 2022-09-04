@@ -1,3 +1,6 @@
 # IntelliJ settings
 /.idea/
 King-Of-Thieves-DD.iml
+
+# IntelliJ bin
+/out/
