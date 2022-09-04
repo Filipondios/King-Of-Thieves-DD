@@ -13,23 +13,21 @@ import javax.swing.Timer;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatDarkLaf;
 
-/**Class that shows the first and its called by {@link MainFrame}, with a image from {@link ImagePanel} and 
+/**Class that shows the first, and it's called by {@link MainFrame}, with a image from {@link ImagePanel} and
  * a progress bar from {@link JProgressBar}. Then it starts the second frame, from the class {@link MainFrame}
  * with the editor panel and workspace.
  * <br><br>
- * Note that the progressbar its only a decorative element for the frame at this version, and it will be like
+ * Note that the progressbar it's only a decorative element for the frame at this version, and it will be like
  * that till all the init processes have much more weight over the application (hevier processes = the aplication
  * starts slower).
  * @author Filipondios, Hagernaut
  * @see MainFrame
  * @version 19.08.2022*/
-@SuppressWarnings("serial")
 public class InitFrame extends javax.swing.JFrame {
 	
 	ImagePanel ip = new ImagePanel();
 	private javax.swing.JProgressBar jProgressBar1;
-	private javax.swing.Timer timer;
-	private ActionListener al;
+	private final javax.swing.Timer timer;
 	private int x = 0;
 	
 	/**Method that sets the basic configurations to the frame and make the instances for 
@@ -38,20 +36,25 @@ public class InitFrame extends javax.swing.JFrame {
 		this.setContentPane(ip);
 		initComponents();
 		setLocationRelativeTo(null);
-		
-		al = new ActionListener() {
+
+		/* Try to set the frame Theme to FlatDarkLaf */
+		/*Could do a multi try-catch with ClassNotFoundException, InstantiationException,
+		 * IllegalAccessException, UnsupportedLookAndFeelException but its cleaner to
+		 * do a single try-catch with the general Exception cause we know that the only thing
+		 * we are specting is to get the Windows Theme. Otherwise, the theme will be the default (Metal).*/
+		ActionListener al = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				x++;
 				jProgressBar1.setValue(x);
-				
-				if (jProgressBar1.getValue()==100) {
+
+				if (jProgressBar1.getValue() == 100) {
 					dispose();
 					timer.stop();
-					
+
 					/* Try to set the frame Theme to FlatDarkLaf */
-			        try {
-			        	javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
+					try {
+						javax.swing.UIManager.setLookAndFeel(new FlatDarkLaf());
 					} catch (Exception ex) {
 						/*Could do a multi try-catch with ClassNotFoundException, InstantiationException,
 						 * IllegalAccessException, UnsupportedLookAndFeelException but its cleaner to
@@ -59,7 +62,7 @@ public class InitFrame extends javax.swing.JFrame {
 						 * we are specting is to get the Windows Theme. Otherwise, the theme will be the default (Metal).*/
 						ex.printStackTrace();
 					}
-			        
+
 					new MainFrame();
 				}
 			}
@@ -104,14 +107,12 @@ public class InitFrame extends javax.swing.JFrame {
 /**A simple class that makes visible a custom image in a {@link JPanel}.
  * @author Filipondios
  * @version 15.08.2022*/
-@SuppressWarnings("serial")
 class ImagePanel extends JPanel{
-	
-	private Image image;
+
 	/**Method that overrides the method paint from {@link JPanel} and draws an image.*/
 	public void paint(Graphics g) {
 		super.paintComponent(g);
-		image = new ImageIcon("resources/images/init/logo.png").getImage();
+		Image image = new ImageIcon("resources/images/init/logo.png").getImage();
 		g.drawImage(image,0,0,getWidth(),getHeight(),null);
 	}
 }
