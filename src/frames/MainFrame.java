@@ -13,13 +13,12 @@ import javax.swing.*;
 
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
- * the workspace created in this Frame. This frame is also linked to other different frames, like
- * {@link DungeonFrame}, in the case that the user selects any option of the menu bar. 
+ * the workspace created in this Frame.
  * @author Filipondios, Hagernaut 
  * @version 24.08.2022**/
 public class MainFrame extends JFrame implements KeyListener{
 
-	private JLayeredPane lpane = new JLayeredPane();
+	private final JLayeredPane lpane = new JLayeredPane();
 	private int actualDungeon = 4;
 	protected static JPanel dungeonPane = new JPanel();
 	protected static JPanel gridPane = new JPanel();
@@ -28,7 +27,7 @@ public class MainFrame extends JFrame implements KeyListener{
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
 		/*Get the user's screen resolution, so the window will have for the first
-		 * time the dimensions: screenWidth/2xscreenHeight/2 */
+		 * time the dimensions: screenWidth/2 x screenHeight/2 */
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Dimension screen  = tk.getScreenSize();
 		setSize(screen.width/2,screen.height/2);
@@ -37,7 +36,7 @@ public class MainFrame extends JFrame implements KeyListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setTitle("King of Thieves Dungeon Dessigner");
+		setTitle("King of Thieves Dungeon Designer");
 		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		setVisible(true);
 
@@ -61,7 +60,7 @@ public class MainFrame extends JFrame implements KeyListener{
 		lpane.add(gridPane, 1, 0);
 
 		/* Create a menu bar for the main application */
-		/* Add items to the menubar */
+		/* Add items to the menu-bar */
 		JMenu index1 = new JMenu(); index1.setText("Options");
 		JMenu index2 = new JMenu(); index2.setText("Dungeon Default Stuff");
 		JMenu index3 = new JMenu(); index3.setText("Traps");
@@ -74,9 +73,9 @@ public class MainFrame extends JFrame implements KeyListener{
 
 		/* Adds a listener to the second sub-item of the first item of the menu-bar
 		 * (Restart). It restarts the current program. To do so, we search the binary file
-		 * of Java. In Windows it should be like C:\Program Files\Java\jre1.8.0_161\bin\java,
+		 * of Java. In Windows, it should be like C:\Program Files\Java\jre1.8.0_161\bin\java,
 		 * and in Linux should be like /usr/bin/java. Then we see the current path of the running
-		 * .jar file and then it runs this file and closes the app. */
+		 * .jar file, and then it runs this file and closes the app. */
 		item1s1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -179,7 +178,7 @@ public class MainFrame extends JFrame implements KeyListener{
 			}
 		}
 		
-		this.setTitle("King of Thieves Dungeon Dessigner (Base "+actualDungeon+")");
+		this.setTitle("King of Thieves Dungeon Designer (Base "+actualDungeon+")");
 		setDungeon(actualDungeon);
 	}
 	
