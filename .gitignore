@@ -2,5 +2,10 @@
 /.idea/
 King-Of-Thieves-DD.iml
 
-# IntelliJ bin
+# IntelliJ & Eclipse bin
 /out/
+/bin/
+
+# Eclipse settings
+.classpath
+.project
