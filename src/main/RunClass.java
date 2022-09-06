@@ -1,5 +1,7 @@
 package main;
 
+import java.io.IOException;
+
 import frames.InitFrame;
 /**This is the main class of the Java application. Obviously, this class contains
  * the public static void main(String[] args) method that permits the application run.
@@ -12,7 +14,7 @@ import frames.InitFrame;
  * @see InitFrame
  * @version 19.08.2022*/
 public class RunClass {
-	public static void main(String[] args) {			
+	public static void main(String[] args) throws IOException {			
 		new InitFrame();
 	}
 }
