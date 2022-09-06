@@ -11,6 +11,8 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import javax.swing.*;
 
+import FilipondiosUtils.ResourceLoader;
+
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
  * the workspace created in this Frame.
@@ -23,6 +25,7 @@ public class MainFrame extends JFrame implements KeyListener{
 	protected static JPanel dungeonPane = new JPanel();
 	protected static JPanel gridPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
+	ResourceLoader loader = new ResourceLoader();
 
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
@@ -37,9 +40,12 @@ public class MainFrame extends JFrame implements KeyListener{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setTitle("King of Thieves Dungeon Designer");
-		setIconImage(new ImageIcon("resources/images/basic/icon.png").getImage());
 		setVisible(true);
+		setIconImage(loader.loadImage("/images/basic/icon.png"));
 
+		/* Frame Layout config. Creates to Panes in the frame: 
+		 * - The one with a grid image that is above the other one.
+		 * - A pane with the dungeon scheme, wich the user can change. */
 		add(lpane, BorderLayout.CENTER);
 		lpane.setBounds(0, 0, getWidth(), getHeight());
 
@@ -49,13 +55,16 @@ public class MainFrame extends JFrame implements KeyListener{
 		gridPane.setBounds(0, 0, getWidth(), getHeight());
 		gridPane.setOpaque(false);
 
-		ImageIcon grid = new ImageIcon(new ImageIcon("resources/images/bases/grid.gif").getImage().
-				getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
+		/* Sets the grid image */
+		ImageIcon grid = new ImageIcon(loader.loadImage("/images/bases/grid.gif")
+				.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
 		JLabel gridLabel = new JLabel(grid);
 		gridPane.add(gridLabel);
 		
+		/* Sets the dungeon no.4 as the background of the frame.*/
 		setDungeon(4);
 
+		/* Sets both panes one above the other */
 		lpane.add(dungeonPane, 0, 0);
 		lpane.add(gridPane, 1, 0);
 
@@ -71,6 +80,12 @@ public class MainFrame extends JFrame implements KeyListener{
 		index1.add(item1s1);
 		index1.add(item1s2);
 
+		/* Adds all the menu-bar items and the menu-bar to the frame*/
+		menu.add(index1);
+		menu.add(index2);
+		menu.add(index3);
+		setJMenuBar(menu);
+		
 		/* Adds a listener to the second sub-item of the first item of the menu-bar
 		 * (Restart). It restarts the current program. To do so, we search the binary file
 		 * of Java. In Windows, it should be like C:\Program Files\Java\jre1.8.0_161\bin\java,
@@ -129,17 +144,18 @@ public class MainFrame extends JFrame implements KeyListener{
 				System.exit(0);
 			}
 		});
-
-		menu.add(index1);
-		menu.add(index2);
-		menu.add(index3);
-		setJMenuBar(menu);
 		
+		/* Sets as keylistener this frame. This means that every key pressed
+		 * by the user with the frame active, will be processed if necessary.*/
 		addKeyListener(this);
 	}
 
+	/**Method that sets to the background pane of the main frame an image that represents 
+	 * the scheme of a dungeon. If the pane is already filled by other image, it removes this one 
+	 * and adds the desired image.
+	 * @author Filipondios*/
 	private void setDungeon(int dungeonNumber){		
-		ImageIcon dungeon2 = new ImageIcon(new ImageIcon("resources/images/bases/"+dungeonNumber+".gif").getImage().
+		ImageIcon dungeon2 = new ImageIcon(loader.loadImage("/images/bases/"+dungeonNumber+".gif").
 				getScaledInstance(dungeonPane.getWidth(), dungeonPane.getHeight(), Image.SCALE_SMOOTH));
 
 		if (dungeonPane.getComponents().length!=0)
@@ -149,6 +165,9 @@ public class MainFrame extends JFrame implements KeyListener{
 		dungeonPane.add(dungeonLabel2);
 	}
 	
+	/**Method that any number that represents a dungeon represents a real dungeon.
+	 * @author Filipondios
+	 * @return True if the number represents a real dungeon, false if dont.*/
 	private boolean isDungeon(int dungeonNumber) {
 		int[] notDungeons = {50,51,55,59,60,85,86};
 		for (int e : notDungeons)
