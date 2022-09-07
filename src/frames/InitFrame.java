@@ -6,10 +6,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.Timer;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatDarkLaf;
 import FilipondiosUtils.ResourceLoader;
@@ -63,7 +60,6 @@ public class InitFrame extends javax.swing.JFrame {
 						 * we are specting is to get the Windows Theme. Otherwise, the theme will be the default (Metal).*/
 						ex.printStackTrace();
 					}
-
 					new MainFrame();
 				}
 			}
@@ -82,10 +78,7 @@ public class InitFrame extends javax.swing.JFrame {
 		setUndecorated(true);
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		ResourceLoader loader = new ResourceLoader();
-		Image icon = loader.loadImage("/images/basic/icon.png");
-		setIconImage(icon);
+		setIconImage(new ImageIcon("resources/images/basic/icon.gif").getImage());
 
 		/* General settings for the bar */
 		jProgressBar1 = new javax.swing.JProgressBar();
@@ -118,7 +111,7 @@ class ImagePanel extends JPanel{
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		ResourceLoader loader = new ResourceLoader();
-		g.drawImage(loader.loadImage("/images/init/logo.png"),0,0,getWidth(),getHeight(),null);
+		g.drawImage(new ImageIcon("resources/images/init/logo.gif").getImage(),0,0,getWidth(),getHeight(),null);
 	}
 }
 
