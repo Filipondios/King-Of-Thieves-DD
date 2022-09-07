@@ -1,5 +1,5 @@
 <p dir="auto" align="center">
-  <img width="160" src="resources/images/basic/icon.png">
+  <img width="160" src="resources/images/basic/icon.gif">
 </p>
 
 <h1 dir="auto" align="center">King Of Thieves Dungeon Designer</h1>
