@@ -25,7 +25,6 @@ public class MainFrame extends JFrame implements KeyListener{
 	protected static JPanel dungeonPane = new JPanel();
 	protected static JPanel gridPane = new JPanel();
 	JMenuBar menu = new JMenuBar();
-	ResourceLoader loader = new ResourceLoader();
 
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
@@ -41,7 +40,7 @@ public class MainFrame extends JFrame implements KeyListener{
 		setResizable(false);
 		setTitle("King of Thieves Dungeon Designer");
 		setVisible(true);
-		setIconImage(loader.loadImage("/images/basic/icon.png"));
+		setIconImage(new ImageIcon("resources/images/basic/icon.gif").getImage());
 
 		/* Frame Layout config. Creates to Panes in the frame: 
 		 * - The one with a grid image that is above the other one.
@@ -56,7 +55,7 @@ public class MainFrame extends JFrame implements KeyListener{
 		gridPane.setOpaque(false);
 
 		/* Sets the grid image */
-		ImageIcon grid = new ImageIcon(loader.loadImage("/images/bases/grid.gif")
+		ImageIcon grid = new ImageIcon(new ImageIcon("resources/images/bases/grid.gif").getImage()
 				.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH));
 		JLabel gridLabel = new JLabel(grid);
 		gridPane.add(gridLabel);
@@ -155,7 +154,7 @@ public class MainFrame extends JFrame implements KeyListener{
 	 * and adds the desired image.
 	 * @author Filipondios*/
 	private void setDungeon(int dungeonNumber){		
-		ImageIcon dungeon2 = new ImageIcon(loader.loadImage("/images/bases/"+dungeonNumber+".gif").
+		ImageIcon dungeon2 = new ImageIcon(new ImageIcon("resources/images/bases/"+dungeonNumber+".gif").getImage().
 				getScaledInstance(dungeonPane.getWidth(), dungeonPane.getHeight(), Image.SCALE_SMOOTH));
 
 		if (dungeonPane.getComponents().length!=0)
