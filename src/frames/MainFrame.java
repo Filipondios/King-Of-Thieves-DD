@@ -78,7 +78,66 @@ public class MainFrame extends JFrame implements KeyListener{
 		JMenuItem item1s2 = new JMenuItem("Exit");
 		index1.add(item1s1);
 		index1.add(item1s2);
+		
+		/* Add sub-items to the second item of the menu-bar */
+		JMenuItem item2s1 = new JMenuItem("Totem");
+		JMenuItem item2s2 = new JMenuItem("Door");
+		JMenuItem item2s3 = new JMenuItem("Gravity Switch");
+		JMenuItem item2s4 = new JMenuItem("Platform");
+		JMenuItem item2s5 = new JMenuItem("Trampoline");
+		
+		item2s1.setIcon(new ImageIcon(new ImageIcon("resources/images/items/totem.gif").getImage()));
+		item2s2.setIcon(new ImageIcon(new ImageIcon("resources/images/items/door.gif").getImage()));
+		item2s3.setIcon(new ImageIcon(new ImageIcon("resources/images/items/gravity.gif").getImage()));
+		item2s4.setIcon(new ImageIcon(new ImageIcon("resources/images/items/platform.gif").getImage()));
+		item2s5.setIcon(new ImageIcon(new ImageIcon("resources/images/items/trampoline.gif").getImage()));
+		
+		index2.add(item2s1);
+		index2.add(item2s2);
+		index2.add(item2s3);
+		index2.add(item2s4);
+		index2.add(item2s5);
 
+		/* Add sub-items to the second item of the menu-bar */
+		JMenuItem item3s1 = new JMenuItem("Saw");
+		JMenuItem item3s2 = new JMenuItem("Red Guard");
+		JMenuItem item3s3 = new JMenuItem("Cannon");
+		JMenuItem item3s4 = new JMenuItem("Seeker Bird");
+		JMenuItem item3s5 = new JMenuItem("Homing Cannon");
+		JMenuItem item3s6 = new JMenuItem("Spinner");
+		JMenuItem item3s7 = new JMenuItem("Ricochet");
+		JMenuItem item3s8 = new JMenuItem("Lil' Scorcher");
+		JMenuItem item3s9 = new JMenuItem("Warder");
+		JMenuItem item3s10 = new JMenuItem("Roaster");
+		JMenuItem item3s11 = new JMenuItem("Bloodhound");
+		//JMenuItem item3s12 = new JMenuItem("Electro Cannon");
+		
+		
+		item3s1.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/saw.gif").getImage()));
+		item3s2.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/rg.gif").getImage()));
+		item3s3.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/cannon.gif").getImage()));
+		item3s4.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/fly.gif").getImage()));
+		item3s5.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/hcannon.gif").getImage()));
+		item3s6.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/spinner.gif").getImage()));
+		item3s7.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/ricochet.gif").getImage()));
+		item3s8.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/dragon.gif").getImage()));
+		item3s9.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/warder.gif").getImage()));
+		item3s10.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/roaster.gif").getImage()));
+		item3s11.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/bh.gif").getImage()));
+		//item3s5.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/.gif").getImage()));
+		
+		index3.add(item3s1);
+		index3.add(item3s2);
+		index3.add(item3s3);
+		index3.add(item3s4);
+		index3.add(item3s5);
+		index3.add(item3s6);
+		index3.add(item3s7);
+		index3.add(item3s8);
+		index3.add(item3s9);
+		index3.add(item3s10);
+		index3.add(item3s11);
+		
 		/* Adds all the menu-bar items and the menu-bar to the frame*/
 		menu.add(index1);
 		menu.add(index2);
