@@ -2,14 +2,12 @@ package frames;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import com.formdev.flatlaf.FlatDarkLaf;
-import FilipondiosUtils.ResourceLoader;
 
 /**Class that shows the first, and it's called by {@link MainFrame}, with a image from {@link ImagePanel} and
  * a progress bar from {@link JProgressBar}. Then it starts the second frame, from the class {@link MainFrame}
@@ -21,7 +19,8 @@ import FilipondiosUtils.ResourceLoader;
  * @author Filipondios, Hagernaut
  * @see MainFrame
  * @version 05.09.2022*/
-public class InitFrame extends javax.swing.JFrame {
+@SuppressWarnings("serial")
+public class InitFrame extends JFrame {
 
 	private javax.swing.JProgressBar jProgressBar1;
 	private final javax.swing.Timer timer;
@@ -105,12 +104,12 @@ public class InitFrame extends javax.swing.JFrame {
 /**A simple class that makes visible a custom image in a {@link JPanel}.
  * @author Filipondios
  * @version 05.09.2022*/
+@SuppressWarnings("serial")
 class ImagePanel extends JPanel{
 
 	/**Method that overrides the method paint from {@link JPanel} and draws an image.*/
 	public void paint(Graphics g) {
 		super.paintComponent(g);
-		ResourceLoader loader = new ResourceLoader();
 		g.drawImage(new ImageIcon("resources/images/init/logo.gif").getImage(),0,0,getWidth(),getHeight(),null);
 	}
 }
