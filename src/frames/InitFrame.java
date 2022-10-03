@@ -83,7 +83,7 @@ public class InitFrame extends JFrame {
 		jProgressBar1 = new javax.swing.JProgressBar();
 		jProgressBar1.setBackground(new Color(132, 132, 132));
 		jProgressBar1.setForeground(new Color(25, 25, 25));
-		jProgressBar1.setBorder(new EmptyBorder(2,5,2,5));
+		jProgressBar1.setBorder(new EmptyBorder(2,5,2,5)); 
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -106,7 +106,7 @@ public class InitFrame extends JFrame {
  * @version 05.09.2022*/
 @SuppressWarnings("serial")
 class ImagePanel extends JPanel{
-
+	
 	/**Method that overrides the method paint from {@link JPanel} and draws an image.*/
 	public void paint(Graphics g) {
 		super.paintComponent(g);
