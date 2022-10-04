@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -14,7 +15,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
-import traps.*;
 
 /**This will be the main Frame for the application. Called by {@link InitFrame}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
@@ -69,11 +69,11 @@ public class MainFrame extends JFrame implements KeyListener{
 		JMenuItem item2s4 = new JMenuItem("Platform");
 		JMenuItem item2s5 = new JMenuItem("Trampoline");
 		
-		item2s1.setIcon(new ImageIcon(new ImageIcon("resources/images/items/totem.png").getImage()));
-		item2s2.setIcon(new ImageIcon(new ImageIcon("resources/images/items/door.png").getImage()));
-		item2s3.setIcon(new ImageIcon(new ImageIcon("resources/images/items/gravity.png").getImage()));
-		item2s4.setIcon(new ImageIcon(new ImageIcon("resources/images/items/platform.png").getImage()));
-		item2s5.setIcon(new ImageIcon(new ImageIcon("resources/images/items/trampoline.png").getImage()));
+		item2s1.setIcon(new ImageIcon("resources/images/items/totem.png"));
+		item2s2.setIcon(new ImageIcon("resources/images/items/door.png"));
+		item2s3.setIcon(new ImageIcon("resources/images/items/gravity.png"));
+		item2s4.setIcon(new ImageIcon("resources/images/items/platform.png"));
+		item2s5.setIcon(new ImageIcon("resources/images/items/trampoline.png"));
 		
 		index2.add(item2s1);
 		index2.add(item2s2);
@@ -95,17 +95,17 @@ public class MainFrame extends JFrame implements KeyListener{
 		JMenuItem item3s11 = new JMenuItem("Bloodhound");
 		
 		
-		item3s1.setIcon(Saw.renderizeTrapImage());
-		item3s2.setIcon(RedGuard.renderizeTrapImage());
-		item3s3.setIcon(Cannon.renderizeTrapImage());
-		item3s4.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/fly.gif").getImage()));
-		item3s5.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/homingcannon.gif").getImage()));
-		item3s6.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/spinner.gif").getImage()));
-		item3s7.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/ricochet.gif").getImage()));
-		item3s8.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/dragon.gif").getImage()));
-		item3s9.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/warder.gif").getImage()));
-		item3s10.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/roaster.gif").getImage()));
-		item3s11.setIcon(new ImageIcon(new ImageIcon("resources/images/traps/bh.gif").getImage()));
+		item3s1.setIcon(new ImageIcon("resources/images/traps/saw.gif"));
+		item3s2.setIcon(new ImageIcon("resources/images/traps/redguard.gif"));
+		item3s3.setIcon(new ImageIcon("resources/images/traps/cannon.gif"));
+		item3s4.setIcon(new ImageIcon("resources/images/traps/fly.gif"));
+		item3s5.setIcon(new ImageIcon("resources/images/traps/homingcannon.gif"));
+		item3s6.setIcon(new ImageIcon("resources/images/traps/spinner.gif"));
+		item3s7.setIcon(new ImageIcon("resources/images/traps/ricochet.gif"));
+		item3s8.setIcon(new ImageIcon("resources/images/traps/dragon.gif"));
+		item3s9.setIcon(new ImageIcon("resources/images/traps/warder.gif"));
+		item3s10.setIcon(new ImageIcon("resources/images/traps/roaster.gif"));
+		item3s11.setIcon(new ImageIcon("resources/images/traps/bh.gif"));
 		
 		index3.add(item3s1);
 		index3.add(item3s2);
@@ -151,7 +151,7 @@ public class MainFrame extends JFrame implements KeyListener{
 		public TilePanel(final BoardPanel boardPanel, final int tileId) {
 			this.setLayout(new GridBagLayout());
 			assignColor(tileId);
-			addMouseListener(this);
+			this.addMouseListener(this);
 		}
 
 		private void assignColor(final int tileId) {
@@ -160,14 +160,34 @@ public class MainFrame extends JFrame implements KeyListener{
 			MainFrame.BOARD_COMPOSITION[tileId]=false;
 		}
 
+		@Override
 		public void mouseClicked(MouseEvent e) {
-			setBackground(Color.black);
+			setBackground(Color.BLACK);			
 		}
 
-		public void mousePressed(MouseEvent e) {/*Nothing TODO*/}
-		public void mouseReleased(MouseEvent e) {/*Nothing TODO*/}
-		public void mouseEntered(MouseEvent e) {/*Nothing TODO*/}
-		public void mouseExited(MouseEvent e) {/*Nothing TODO*/}
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 	
 	public void keyTyped(KeyEvent e) {/*Nothing TODO*/}
