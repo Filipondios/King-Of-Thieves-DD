@@ -6,9 +6,9 @@
 
 The King Of Thieves Dungeon Designer, King of Thieves DD, or Kot DD is a Java made application that allows the user to create any type of dungeon, with any number of traps and other stuff. The main use for this app is, in the case that someone asks you what layout for a certain dungeon it's the best, you open Kot DD and you create the best layout you think there is. 
 
-For example, for the current version of the program, an empty layout for the ``base 30`` would look like this:<br>
+For example, for the current version of the program, an empty layout for the ``base 30`` and opening the items menu would look like this:<br>
 
-![imagen](https://user-images.githubusercontent.com/91225771/190832693-b4405466-3b88-4c5d-b090-b3102e1412db.png)
+![imagen](https://user-images.githubusercontent.com/91225771/193885203-f5db0668-1d6a-4491-8b9c-928214fcc3b5.png)
 
 Note: All dungeons in the app follows the order made in the <a href="https://cdn.discordapp.com/attachments/857474425279741982/908792147568898048/bases.jpg"> Alucen's scheme.</a>
 
