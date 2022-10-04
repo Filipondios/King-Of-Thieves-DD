@@ -7,7 +7,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -24,13 +23,13 @@ import javax.swing.border.LineBorder;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame implements KeyListener{
 
-	public static final boolean[] BOARD_COMPOSITION = new boolean[112];
+	//public static final boolean[] BOARD_COMPOSITION = new boolean[112];
 
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
 		setIconImage(new ImageIcon("resources/images/basic/icon.gif").getImage());
 		this.setTitle("King of Thieves Dungeon Dessigner");
-		this.setSize(960,540);
+		this.setSize(1050,670);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setJMenuBar(createMenubar());
@@ -96,14 +95,14 @@ public class MainFrame extends JFrame implements KeyListener{
 		
 		
 		item3s1.setIcon(new ImageIcon("resources/images/traps/saw.gif"));
-		item3s2.setIcon(new ImageIcon("resources/images/traps/redguard.gif"));
+		item3s2.setIcon(new ImageIcon("resources/images/traps/redguard.png"));
 		item3s3.setIcon(new ImageIcon("resources/images/traps/cannon.gif"));
 		item3s4.setIcon(new ImageIcon("resources/images/traps/fly.gif"));
-		item3s5.setIcon(new ImageIcon("resources/images/traps/homingcannon.gif"));
+		item3s5.setIcon(new ImageIcon("resources/images/traps/hcannon.png"));
 		item3s6.setIcon(new ImageIcon("resources/images/traps/spinner.gif"));
 		item3s7.setIcon(new ImageIcon("resources/images/traps/ricochet.gif"));
-		item3s8.setIcon(new ImageIcon("resources/images/traps/dragon.gif"));
-		item3s9.setIcon(new ImageIcon("resources/images/traps/warder.gif"));
+		item3s8.setIcon(new ImageIcon("resources/images/traps/scorcher.png"));
+		item3s9.setIcon(new ImageIcon("resources/images/traps/warder.png"));
 		item3s10.setIcon(new ImageIcon("resources/images/traps/roaster.gif"));
 		item3s11.setIcon(new ImageIcon("resources/images/traps/bh.gif"));
 		
@@ -140,54 +139,44 @@ public class MainFrame extends JFrame implements KeyListener{
 	
 	private final class BoardPanel extends JPanel{
 		public BoardPanel() {
-			super(new GridLayout(8,14));
-			for (int i = 0; i < 112; i++)
+			super(new GridLayout(10,16));
+			for (int i = 0; i < 160; i++)
 				add(new TilePanel(this,i));				
 		}
 	}
 
 	private final class TilePanel extends JPanel implements MouseListener{
 
+		private static int row = 0;
+		private static int column = 0;
+						
 		public TilePanel(final BoardPanel boardPanel, final int tileId) {
-			this.setLayout(new GridBagLayout());
-			assignColor(tileId);
+			this.setLayout(new GridBagLayout());			
+			this.setBackground(assignColor());
+			checkPositions();
+			setBorder(new LineBorder(Color.BLACK));
 			this.addMouseListener(this);
 		}
 
-		private void assignColor(final int tileId) {
-			setBackground(Color.white);
-			setBorder(new LineBorder(Color.BLACK));
-			MainFrame.BOARD_COMPOSITION[tileId]=false;
+		private Color assignColor() {
+			return (row==0 || row ==9 || column==0 || column==15)? Color.black : Color.white;
 		}
 
+		private void checkPositions() {
+			if(column==15) {
+				row++; column=0;
+			}else column++;		
+		}
+		
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			setBackground(Color.BLACK);			
 		}
 
-		@Override
-		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
+		public void mousePressed(MouseEvent e) {}
+		public void mouseReleased(MouseEvent e) {}
+		public void mouseEntered(MouseEvent e) {}
+		public void mouseExited(MouseEvent e) {}
 	}
 	
 	public void keyTyped(KeyEvent e) {/*Nothing TODO*/}
