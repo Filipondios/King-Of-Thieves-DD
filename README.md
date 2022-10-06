@@ -1,5 +1,5 @@
 <p dir="auto" align="center">
-  <img width="160" src="resources/images/basic/icon.gif">
+  <img width="160" src=".template/icon.png">
 </p>
 
 <h1 dir="auto" align="center">King Of Thieves Dungeon Designer</h1>
@@ -13,7 +13,7 @@ For example, for the current version of the program, an empty layout for the ``b
 Note: All dungeons in the app follows the order made in the <a href="https://cdn.discordapp.com/attachments/857474425279741982/908792147568898048/bases.jpg"> Alucen's scheme.</a>
 
 # How to run the program
-## Installation via link
+## Run via link
 Download the ``.zip`` current version of the program with the necessary files <a href="https://raw.githubusercontent.com/Filipondios/King-Of-Thieves-DD/main/current-version/current-version.zip">in this link</a>.
 Then, you have two options:
 - Double-click in the .jar file
