@@ -158,6 +158,7 @@ public class MainFrame extends JFrame implements KeyListener{
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	private void importDungeon(String path) {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
