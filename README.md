@@ -21,14 +21,4 @@ Then, you have two options:
 ```bash
 java -jar KOTDD.jar
 ```
-## Installation via command line
-```bash
-git clone https://github.com/Filipondios/King-Of-Thieves-DD.git
-cd King-Of-Thieves-DD/current-version/
-unzip KOTDD.zip && java -jar KOTDD.jar
-```
 <b> The easier option is the first, but if you are using a window manager in linux, maybe the faster one is the second. </b>
-
-# How to contribute
-- Clone this repository by yourself or follow the Installation via command line.
-- Via Github make a manual pull request.
