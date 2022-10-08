@@ -1,7 +1,6 @@
 package frames;
 
 import java.awt.BorderLayout;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -18,9 +17,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
+import com.formdev.flatlaf.extras.FlatSVGIcon;
 import main.RunClass;
-import traps.*;
 
 /**This will be the main Frame for the application. Called by {@link RunClass}, this window
  * sets an area where the user can open different dungeons and place traps and other stuff into
@@ -69,11 +67,11 @@ public class MainFrame extends JFrame implements KeyListener{
 		JMenuItem item2s4 = new JMenuItem("Platform");
 		JMenuItem item2s5 = new JMenuItem("Trampoline");
 
-		item2s1.setIcon(new ImageIcon("resources/images/items/totem.png"));
-		item2s2.setIcon(new ImageIcon("resources/images/items/door.png"));
-		item2s3.setIcon(new ImageIcon("resources/images/items/gravity.png"));
-		item2s4.setIcon(new ImageIcon("resources/images/items/platform.png"));
-		item2s5.setIcon(new ImageIcon("resources/images/items/trampoline.png"));
+		item2s1.setIcon(new FlatSVGIcon("svgImages/items/totem.svg",91,125));
+		item2s2.setIcon(new FlatSVGIcon("svgImages/items/door.svg",90,125));
+		item2s3.setIcon(new FlatSVGIcon("svgImages/items/gravity.svg",125,125));
+		item2s4.setIcon(new FlatSVGIcon("svgImages/items/board.svg",125,17));
+		item2s5.setIcon(new FlatSVGIcon("svgImages/items/pad.svg",125,35));
 
 		index2.add(item2s1);
 		index2.add(item2s2);
@@ -95,19 +93,19 @@ public class MainFrame extends JFrame implements KeyListener{
 		JMenuItem item3s11 = new JMenuItem("Bloodhound");
 		JMenuItem item3s12 = new JMenuItem("Electro cannon");
 
-		item3s1.setIcon(new ImageIcon(Saw.icon.getImage().getScaledInstance(37,37,Image.SCALE_SMOOTH)));		
-		item3s2.setIcon(new ImageIcon(RedGuard.icon.getImage().getScaledInstance(35,37,Image.SCALE_SMOOTH)));		
-		item3s3.setIcon(new ImageIcon(Cannon.icon.getImage().getScaledInstance(40,37,Image.SCALE_SMOOTH)));
-		item3s4.setIcon(new ImageIcon(Fly.icon.getImage().getScaledInstance(37,32,Image.SCALE_SMOOTH)));
-		item3s5.setIcon(new ImageIcon(HCannon.icon.getImage().getScaledInstance(42,34,Image.SCALE_SMOOTH)));
-		item3s6.setIcon(new ImageIcon(Spinner.icon.getImage().getScaledInstance(38,37,Image.SCALE_SMOOTH)));
-		item3s7.setIcon(new ImageIcon(Ricochet.icon.getImage().getScaledInstance(36,37,Image.SCALE_SMOOTH)));
-		item3s8.setIcon(new ImageIcon(Scorcher.icon.getImage().getScaledInstance(35,37,Image.SCALE_SMOOTH)));
-		item3s9.setIcon(new ImageIcon(Warder.icon.getImage().getScaledInstance(36,37,Image.SCALE_SMOOTH)));
-		item3s10.setIcon(new ImageIcon(Roaster.icon.getImage().getScaledInstance(46,37,Image.SCALE_SMOOTH)));
-		item3s11.setIcon(new ImageIcon(BHound.icon.getImage().getScaledInstance(29,35,Image.SCALE_SMOOTH)));
-		item3s12.setIcon(new ImageIcon(ECannon.icon.getImage().getScaledInstance(23,37,Image.SCALE_SMOOTH)));
-
+		item3s1.setIcon(new FlatSVGIcon("svgImages/traps/saw.svg", 37, 37));		
+		item3s2.setIcon(new FlatSVGIcon("svgImages/traps/redguard.svg", 35, 37));
+		item3s3.setIcon(new FlatSVGIcon("svgImages/traps/cannon.svg", 40, 37));  
+		item3s4.setIcon(new FlatSVGIcon("svgImages/traps/fly.svg", 37, 32));  
+		item3s5.setIcon(new FlatSVGIcon("svgImages/traps/hcannon.svg", 42, 34));  
+		item3s6.setIcon(new FlatSVGIcon("svgImages/traps/spinner.svg", 38, 37));  
+		item3s7.setIcon(new FlatSVGIcon("svgImages/traps/ricochet.svg", 36, 37));  
+		item3s8.setIcon(new FlatSVGIcon("svgImages/traps/scorcher.svg", 35, 37));  
+		item3s9.setIcon(new FlatSVGIcon("svgImages/traps/warder.svg", 36, 37));  
+		item3s10.setIcon(new FlatSVGIcon("svgImages/traps/roaster.svg", 46, 37));  
+		item3s11.setIcon(new FlatSVGIcon("svgImages/traps/bh.svg", 29, 35));
+		item3s12.setIcon(new FlatSVGIcon("svgImages/traps/ecannon.svg", 23, 37));  
+		
 		index3.add(item3s1);  index3.add(item3s2);
 		index3.add(item3s3);  index3.add(item3s4);
 		index3.add(item3s5);  index3.add(item3s6);
