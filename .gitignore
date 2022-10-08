@@ -1,9 +1,4 @@
-# IntelliJ settings
-/.idea/
-King-Of-Thieves-DD.iml
-
-# IntelliJ & Eclipse bin
-/out/
+# Eclipse bin
 /bin/
 
 # Eclipse settings
