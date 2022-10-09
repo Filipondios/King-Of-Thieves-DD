@@ -3,8 +3,6 @@ package frames;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,6 +11,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -26,22 +25,33 @@ import main.RunClass;
  * @author Filipondios, Hagernaut 
  * @version 06.10.2022**/
 @SuppressWarnings("serial")
-public class MainFrame extends JFrame implements KeyListener{
+public class MainFrame extends JFrame {
 
 	protected static ArrayList<Integer> BOARD_COMPOSITION = new ArrayList<>(160);
-	private BoardPanel board = new BoardPanel();
+	JLayeredPane layers = new JLayeredPane();
+	BoardPanel board = new BoardPanel();
+	ContentPanel trapsPanel = new ContentPanel();
 
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
 		setIconImage(new ImageIcon("resources/images/basic/icon.gif").getImage());
 		this.setTitle("King of Thieves Dungeon Dessigner");
 		this.setSize(1050,670);
-		this.setLocationRelativeTo(null);
-		this.setResizable(false);
+		this.setLayout(new BorderLayout());
+		layers.setSize(1050,670);
+		board.setBounds(0,0,1050,670);
+		
+		this.add(layers, BorderLayout.CENTER);
+		board.setOpaque(true);		
+		trapsPanel.setOpaque(false);
+		
+		layers.add(board,0,0);
+		layers.add(trapsPanel,1,0);
+		
 		this.setJMenuBar(createMenubar());
-		this.add(board, BorderLayout.CENTER);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.addKeyListener(this);
+		this.setResizable(false);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
@@ -168,8 +178,4 @@ public class MainFrame extends JFrame implements KeyListener{
 			e.printStackTrace();
 		}
 	}
-
-	public void keyTyped(KeyEvent e) {/*Nothing TODO*/}
-	public void keyReleased(KeyEvent e) {/*Nothing TODO*/}
-	public void keyPressed(KeyEvent e) {/*Nothing TODO*/}
 }
