@@ -1,0 +1,26 @@
+{
+    "Totem" : {
+        "width" : 130,
+        "height" : 160
+    },
+
+    "Door" : {
+        "width" : 120,
+        "height" : 150
+    },
+
+    "Gravity Switch" : {
+        "width" : 140,
+        "height" : 140
+    },
+
+    "Platform" : {
+        "width" : 130,
+        "height" : 20
+    },
+
+    "Trampoline" : {
+        "width" : 140,
+        "height" : 36
+    }
+}

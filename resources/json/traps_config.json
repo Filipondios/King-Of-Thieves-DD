@@ -1,0 +1,7 @@
+{
+    "Saw" : {
+        "dimension" : [70,70],
+        "can_move" : false,
+        "rotable" : false
+    }
+}
