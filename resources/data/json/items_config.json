@@ -1,0 +1,36 @@
+[
+    {
+        "Item" : {
+            "item_id" : "Totem",
+            "dimension" : [130,160]
+        }
+    },
+
+    {
+        "Item" : {
+            "item_id" : "Door",
+            "dimension" : [120,155]
+        }
+    },
+
+    {
+        "Item" : {
+            "item_id" : "Gravity Switch",
+            "dimension" : [140,140]
+        }
+    },
+
+    {
+        "Item" : {
+            "item_id" : "Platform",
+            "dimension" : [130,20]
+        }
+    },
+
+    {
+        "Item" : {
+            "item_id" : "Trampoline",
+            "dimension" : [140,36]
+        }
+    }
+]
