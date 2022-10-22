@@ -21,11 +21,13 @@ import app.kotdd.main.RunClass;
 import app.kotdd.panels.ImagesPanel;
 import app.kotdd.panels.LayoutPanel;
 
-/**This will be the main Frame for the application. Called by {@link RunClass}, this window
- * sets an area where the user can open different dungeons and place traps and other stuff into
- * the workspace created in this Frame.
+/**This will be the main Frame for the application. This window sets an area where the user can open different dungeons
+ * and place traps images and other stuff into it. The frame its made by two "layers": The first one, at the background
+ * is made up by 160 square panels, that makes the dungeon grid and blocks. The second one, at the top, is a panel where
+ * the user can place different images, each one made with the class {@link DragableLabel}. This frame also have a menu-bar
+ * where the user can add Items and Traps images, import a dungeon and clear up the dungeon.
  * @author Filipondios, Hagernaut 
- * @version 20.10.2022**/
+ * @version 22.10.2022**/
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
@@ -140,6 +142,13 @@ public class MainFrame extends JFrame {
 		return menu;
 	}
 
+	/** Method that saves into a file located in "resources/data/binBases" the object 
+	 * BOARD_COMPOSITION that contains the "blocks" that makes the dungeon. This method
+	 * wont be available for the users at the first versions, because in future versions,
+	 * this mode will be added as a new "edit mode". 
+	 * @param dungeon BOARD_COMPOSITION {@link ArrayList} that contains the dungeon blocks.
+	 * @param iD String that represents the name of the file where the data is going to
+	 * be saved.*/
 	private void exportDungeon(Object dungeon, String iD) {
 		try {
 			ObjectOutputStream ous = new ObjectOutputStream(new FileOutputStream("resources/data/binBases/"+iD+".bs"));
@@ -150,6 +159,10 @@ public class MainFrame extends JFrame {
 		}
 	}
 
+	/** Method that imports (overrides) with a {@link ArrayList} that contains the "blocks"
+	 * of a dungeon and was storaged in a file in "resources/data/binBases" the
+	 * current BOARD_COMPOSITION {@link ArrayList}. 
+	 * @param path String that represents the name of the file where a dungeon is "saved".*/
 	private void importDungeon(String path) {
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
