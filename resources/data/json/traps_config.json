@@ -1,0 +1,109 @@
+[
+    {
+        "Trap" : {
+            "trap_id" : "Saw",
+            "dimension" : [70,70],
+            "can_move" : false,
+            "can_rotate" : false
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Red Guard",
+            "dimension" : [70,75],
+            "can_move" : true,
+            "can_rotate" : false
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Cannon",
+            "dimension" : [75,70],
+            "can_move" : false,
+            "can_rotate" : true
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Seeker Bird",
+            "dimension" : [60,50],
+            "can_move" : false,
+            "can_rotate" : false
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Homing Cannon",
+            "dimension" : [72,55],
+            "can_move" : false,
+            "can_rotate" : false
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Spinner",
+            "dimension" : [72,72],
+            "can_move" : true,
+            "can_rotate" : false
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Ricochet",
+            "dimension" : [60,60],
+            "can_move" : false,
+            "can_rotate" : true
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Lil Scorcher",
+            "dimension" : [65,65],
+            "can_move" : false,
+            "can_rotate" : true
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Warder",
+            "dimension" : [80,80],
+            "can_move" : true,
+            "can_rotate" : true
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Roaster",
+            "dimension" : [85,75],
+            "can_move" : false,
+            "can_rotate" : false
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "BloodHound",
+            "dimension" : [60,70],
+            "can_move" : false,
+            "can_rotate" : true
+        }
+    },
+
+    {
+        "Trap" : {
+            "trap_id" : "Electro Cannon",
+            "dimension" : [55,70],
+            "can_move" : false,
+            "can_rotate" : true
+        }
+    }
+]
