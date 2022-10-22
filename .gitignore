@@ -8,3 +8,10 @@
 
 # VsCode Settings
 .vscode
+
+# IntelliJ Settings
+/.idea/
+/KOTDD.iml
+
+# IntelliJ bin
+/classes
