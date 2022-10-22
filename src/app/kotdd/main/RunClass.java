@@ -1,7 +1,6 @@
 package app.kotdd.main;
 
 import com.formdev.flatlaf.FlatDarkLaf;
-
 import app.kotdd.frames.MainFrame;
 
 /**This is the main class of the Java application. Obviously, this class contains

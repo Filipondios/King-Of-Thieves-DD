@@ -29,10 +29,10 @@ import app.kotdd.panels.LayoutPanel;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
-	public static ArrayList<Integer> BOARD_COMPOSITION = new ArrayList<>(160); // Dungeon tiles
-	JLayeredPane layers = new JLayeredPane(); // Application layers: one for the images and other for the tiles
-	LayoutPanel board = new LayoutPanel(); // Panel fill up with 160 tiles = dungeon layout
-	ImagesPanel imagePanel = new ImagesPanel(); // Panel where all the traps and items images are placed
+	public static ArrayList<Integer> BOARD_COMPOSITION = new ArrayList<>(160); // Dungeon "tiles"
+	JLayeredPane frame_layers = new JLayeredPane(); // Application frame layers: one for the images and other for the "tiles"
+	LayoutPanel blocks_panel = new LayoutPanel(); // Panel filled up with 160 tiles = dungeon layout
+	ImagesPanel images_panel = new ImagesPanel(); // Panel where all the traps and items images are placed
 	
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
@@ -40,15 +40,15 @@ public class MainFrame extends JFrame {
 		this.setTitle("King of Thieves Dungeon Dessigner");
 		this.setSize(1050,670);
 		this.setLayout(new BorderLayout());
-		layers.setSize(1050,670);
-		board.setBounds(0,0,1050,670);
+		frame_layers.setSize(1050,670);
+		blocks_panel.setBounds(0,0,1050,670);
 		
-		this.add(layers);
-		board.setOpaque(true);		
-		imagePanel.setOpaque(false);
+		this.add(frame_layers);
+		blocks_panel.setOpaque(true);		
+		images_panel.setOpaque(false);
 						
-		layers.add(board,0,0);
-		layers.add(imagePanel,1,0);
+		frame_layers.add(blocks_panel,0,0);
+		frame_layers.add(images_panel,1,0);
 				
 		this.setJMenuBar(createMenubar());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,8 +76,8 @@ public class MainFrame extends JFrame {
 		ActionListener items_listener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String id  = e.paramString();
-				imagePanel.add(id.substring(21,id.indexOf("w")-1),true);
-				imagePanel.doLayout();
+				images_panel.add(id.substring(21,id.indexOf("w")-1),true);
+				images_panel.doLayout();
 			}
 		};
 		
@@ -93,13 +93,13 @@ public class MainFrame extends JFrame {
 		ActionListener traps_listener = new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String id  = e.paramString();
-				imagePanel.add(id.substring(21,id.indexOf(",w")),false);
-				imagePanel.doLayout();
+				images_panel.add(id.substring(21,id.indexOf(",w")),false);
+				images_panel.doLayout();
 			}
 		};
 		
 		String[] traps_images = {"Saw","Red Guard","Cannon","Seeker Bird","Homing Cannon",
-				"Spinner","Ricochet","Lil' Scorcher","Warder","Roaster","Bloodhound","Electro cannon"};
+				"Spinner","Ricochet","Lil Scorcher","Warder","Roaster","BloodHound","Electro Cannon"};
 				
 		for (String id : traps_images) {
 			JMenuItem trap = new JMenuItem(id);
@@ -114,7 +114,7 @@ public class MainFrame extends JFrame {
 				String str = JOptionPane.showInputDialog(null, "Type the base number/name to import.\n"
 						+ "NOTE: If you want an empty dungeon, type 0.");
 				importDungeon("resources/data/binBases/"+str+".bs");
-				board.setScheme(BOARD_COMPOSITION);
+				blocks_panel.setScheme(BOARD_COMPOSITION);
 			}
 		});	
 		
@@ -126,7 +126,10 @@ public class MainFrame extends JFrame {
 		});	
 		
 		clear.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) { imagePanel.removeAll(); }
+			public void actionPerformed(ActionEvent e) { 
+				images_panel.removeAll(); 
+				images_panel.repaint();
+			}
 		});
 		
 		/* * * * * Adds all the options to the main menu-bar of the application * * * * */
