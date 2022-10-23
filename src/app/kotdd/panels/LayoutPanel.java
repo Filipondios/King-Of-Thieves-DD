@@ -7,7 +7,8 @@ import javax.swing.JPanel;
 
 /** Class that extends from JPanel. This panel is made up with 160 blocks, that makes the
  * representation of a dungeon, with a extra block border.
- * @author Filipondios, Haggernaut */
+ * @author Filipondios, Haggernaut 
+ * @version 23.10.2022*/
 @SuppressWarnings("serial")
 public final class LayoutPanel extends JPanel {
 	

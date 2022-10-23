@@ -24,7 +24,7 @@ import app.kotdd.panels.LayoutPanel;
  * the user can place different images, each one made with the class {@link app.kotdd.utils.DraggableLabel}. This frame
  * also have a menu-bar where the user can add Items and Traps images, import a dungeon and clear up the dungeon.
  * @author Filipondios, Hagernaut 
- * @version 22.10.2022**/
+ * @version 23.10.2022**/
 public class MainFrame extends JFrame {
 	public static ArrayList<Integer> BOARD_COMPOSITION = new ArrayList<>(160); // Dungeon "tiles"
 	JLayeredPane frame_layers = new JLayeredPane(); // Application frame layers: one for the images and other for the "tiles"
@@ -33,7 +33,7 @@ public class MainFrame extends JFrame {
 	
 	/**Method that starts all the configurations for the Frame. **/
 	public MainFrame() {
-		setIconImage(new ImageIcon("resources/images/basic/icon.gif").getImage());
+		setIconImage(new ImageIcon("resources/images/icon.gif").getImage());
 		this.setTitle("King of Thieves Dungeon Designer");
 		this.setSize(1050,670);
 		this.setLayout(new BorderLayout());

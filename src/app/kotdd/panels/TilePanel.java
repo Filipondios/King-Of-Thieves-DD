@@ -10,7 +10,8 @@ import app.kotdd.utils.Pair;
 
 @SuppressWarnings("serial")
 /**Class that extends fom {@link JPanel} and represents a dungeon block.
- * @author Filipondios, Haggernaut*/
+ * @author Filipondios, Haggernaut
+ * @version 23.10.2022*/
 public final class TilePanel extends JPanel implements MouseListener{
 	
 	/** Static variable that counts the rows and columns of the actual block in the dungeon. 

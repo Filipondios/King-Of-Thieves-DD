@@ -1,11 +1,12 @@
 package app.kotdd.utils;
 
-import app.types.Trap;
 import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
+
+import app.kotdd.types.Trap;
 
 public class DraggableLabel extends JLabel {
 

@@ -4,15 +4,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JPanel;
-
+import app.kotdd.types.Item;
+import app.kotdd.types.Trap;
 import app.kotdd.utils.DraggableLabel;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-import app.types.Item;
-import app.types.Trap;
+
 public class ImagesPanel extends JPanel{
 	
 	public static ArrayList<Item> ITEMS = new ArrayList<>(5); // ArrayList with every item data: width, height
