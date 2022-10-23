@@ -1,13 +1,13 @@
 package app.types;
 
-/**Class that storages the data of a item.
+/**Class that storages the data of an item.
  * @author Filipondios, Haggernaut*/
 public class Item {
-	/** String that represents the id of a item. For example: Door, Platform... */
-	private String id;
-	/** Array of integers that will have 2 positions only. In dimension[0] will be storaged
+	/** String that represents the id of an item. For example: Door, Platform... */
+	private final String id;
+	/** Array of integers that will have 2 positions only. In dimension[0] will be stored
 	* the width and in dimension[1] the height of the image that represents the item.*/
-	private int dimension[];
+	private final int[] dimension;
 
 	/**Constructor with fields.
 	 * @param id String that represents the id of the item
@@ -26,7 +26,19 @@ public class Item {
 	public int getHeight() {
 		return (dimension == null)? -1 : dimension[1];
 	}
-	
+
+	public String getId(){
+		return this.id;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Item item = (Item) o;
+		return this.id.equals(item.id);
+	}
+
 	@Override
 	public String toString() {
 		return (dimension==null)? "Item: " + id :
