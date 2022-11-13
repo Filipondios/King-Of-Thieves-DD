@@ -13,3 +13,12 @@ For example, for the current version of the program, editing a layout for the ``
 </p>
 
 Note: All dungeons in the app follows the order made in the <a href="https://cdn.discordapp.com/attachments/857474425279741982/908792147568898048/bases.jpg"> Alucen's scheme.</a>
+
+## IMPORTANT - CONTRIBUTIONS
+There are some important bugs in the application that i don't know how to fix them because I'm not an expert inside Java desktop applications
+development and I can't find any help about that bugs. Those are:
+
+- `#1` Opening menu bug: When opening any of the menubar items, all the images/labels that where located into the frame go to the start position
+where they spawned at the beggining. 
+
+- `#2` Rotating a label bug : Same as opening a menu item but when trying to rotate a label / change it's icon to the same but rotated. 
