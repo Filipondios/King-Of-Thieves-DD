@@ -9,7 +9,7 @@ The King Of Thieves Dungeon Designer, King of Thieves DD, or Kot DD is a Java ma
 For example, for the current version of the program, editing a layout for the ``base 73`` would look like this:<br>
 
 <p dir="auto" align="center">
-  <img src=".template/copy.png">
+  <img src=".template/preview.png">
 </p>
 
 Note: All dungeons in the app follows the order made in the <a href="https://cdn.discordapp.com/attachments/857474425279741982/908792147568898048/bases.jpg"> Alucen's scheme.</a>
